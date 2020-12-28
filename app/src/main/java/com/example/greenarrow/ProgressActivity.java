@@ -1,17 +1,14 @@
 package com.example.greenarrow;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-public class ExpressTestActivity extends AppCompatActivity {
+public class ProgressActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_express_test);
+        setContentView(R.layout.activity_progress);
     }
-
-    //TODO: activity logic, fragments
 }

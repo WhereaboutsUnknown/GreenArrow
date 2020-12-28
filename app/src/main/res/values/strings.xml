@@ -3,4 +3,5 @@
     <string name="button_express">Быстрый тест</string>
     <string name="button_category">Тест по категориям</string>
     <string name="button_exam">Главный тест</string>
+    <string name="button_showProgress">Показать прогресс</string>
 </resources>

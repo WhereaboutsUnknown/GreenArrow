@@ -4,47 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSecondary"
+    android:background="@color/colorWhite"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/express"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/button_express"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
         android:background="@drawable/background_gradient"
-        app:layout_constraintBottom_toTopOf="@+id/category"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/category"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/button_category"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
         android:background="@drawable/background_gradient"
-        app:layout_constraintBottom_toTopOf="@+id/exam"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/express" />
+        app:layout_constraintTop_toBottomOf="@id/express" />
 
     <Button
         android:id="@+id/exam"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/button_exam"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
         android:background="@drawable/background_gradient"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category" />
+        app:layout_constraintTop_toBottomOf="@id/category" />
+
+    <Button
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/button_showProgress"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:background="@drawable/background_gradient"
+        app:layout_constraintTop_toBottomOf="@id/exam" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
