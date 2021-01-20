@@ -2,7 +2,7 @@ package com.example.greenarrow.model.questions;
 
 import com.example.greenarrow.model.questiondb.Category;
 
-public class ConcreteQuestion implements Question {
+public final class ConcreteQuestion implements Question {
 
     public Category getCategory() {
         return category;
@@ -32,6 +32,10 @@ public class ConcreteQuestion implements Question {
         return correctAnswer;
     }
 
+    public String getWrongAnswerInfo() {
+        return wrongAnswerInfo;
+    }
+
     private Category category;
     private String optionA;
     private String optionB;
@@ -39,9 +43,10 @@ public class ConcreteQuestion implements Question {
     private String optionD;
     private String questionText;
     private int correctAnswer;
+    private String wrongAnswerInfo;
 
     public ConcreteQuestion(Category category, String optionA, String optionB, String optionC, String optionD,
-                            String questionText, int correctAnswer) {
+                            String questionText, int correctAnswer, String wrongAnswerInfo) {
         this.category = category;
         this.optionA = optionA;
         this.optionB = optionB;
@@ -49,5 +54,6 @@ public class ConcreteQuestion implements Question {
         this.optionD = optionD;
         this.questionText = questionText;
         this.correctAnswer = correctAnswer;
+        this.wrongAnswerInfo = wrongAnswerInfo;
     }
 }

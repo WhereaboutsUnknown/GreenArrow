@@ -8,5 +8,7 @@ public interface Database {
 
     Stack<Question> formQuestionStack(String request);
 
+    boolean isActive();
+
     void deactivate();
 }

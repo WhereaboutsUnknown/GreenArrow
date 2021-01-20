@@ -1,34 +1,73 @@
 package com.example.greenarrow.model.questions;
 
-public class QuestionProcessor implements Processor {
+import com.example.greenarrow.controller.ViewManager;
+import com.example.greenarrow.model.questiondb.Database;
+import com.example.greenarrow.model.questiondb.QuestionDatabase;
+
+import java.util.Stack;
+
+import static com.example.greenarrow.res_mvc.IntegerConstants.DATA_ARRAY_LENGTH;
+import static com.example.greenarrow.res_mvc.IntegerConstants.OPTION_A_INDEX;
+import static com.example.greenarrow.res_mvc.IntegerConstants.OPTION_B_INDEX;
+import static com.example.greenarrow.res_mvc.IntegerConstants.OPTION_C_INDEX;
+import static com.example.greenarrow.res_mvc.IntegerConstants.OPTION_D_INDEX;
+import static com.example.greenarrow.res_mvc.IntegerConstants.QUESTION_TEXT_INDEX;
+
+public final class QuestionProcessor implements Processor {
     private static Processor questionProcessor;
 
+    private ViewManager viewManager;
+    private Database questionDatabase;
+    private Stack<Question> questionStack;
     private Question currentQuestion;
 
-    public static Processor getQuestionProcessor() {
+    public static Processor getQuestionProcessor(ViewManager manager) {
         if (questionProcessor == null) {
-            questionProcessor = new QuestionProcessor();
+            questionProcessor = new QuestionProcessor(manager);
         }
         return questionProcessor;
     }
 
-    private QuestionProcessor() {
+    private QuestionProcessor(ViewManager manager) {
+        questionDatabase = QuestionDatabase.getQuestionDatabase();
+        viewManager = manager;
         //TODO
     }
 
     @Override
-    public void processNextQuestion(Question question) {
-        currentQuestion = question;
-        //TODO
+    public void processNextQuestion() {
+        if (questionStack == null) {
+            //TODO;
+        }
+        if (questionStack.isEmpty()) {
+            deactivate();
+        } else {
+            currentQuestion = questionStack.pop();
+            String[] questionData = new String[DATA_ARRAY_LENGTH];
+            questionData[QUESTION_TEXT_INDEX] = currentQuestion.getQuestionText();
+            questionData[OPTION_A_INDEX] = currentQuestion.getOptionA();
+            questionData[OPTION_B_INDEX] = currentQuestion.getOptionB();
+            questionData[OPTION_C_INDEX] = currentQuestion.getOptionC();
+            questionData[OPTION_D_INDEX] = currentQuestion.getOptionD();
+            viewManager.transferToView(questionData);
+        }
+    }
+
+    @Override
+    public void reset(String request) {
+        questionStack = questionDatabase.formQuestionStack(request);
+        processNextQuestion();
     }
 
     @Override
     public void deactivate() {
+        currentQuestion = null;
+        viewManager.notifyAboutTestFinish();
         //TODO
     }
 
     @Override
-    public boolean checkAnswer(int answer) {
+    public boolean approvesAnswer(int answer) {
         return answer == currentQuestion.getCorrectAnswer();
         //TODO
     }
@@ -61,5 +100,10 @@ public class QuestionProcessor implements Processor {
     @Override
     public String getQuestionText() {
         return currentQuestion.getQuestionText();
+    }
+
+    @Override
+    public String takeWrongAnswerInfo() {
+        return currentQuestion.getWrongAnswerInfo();
     }
 }

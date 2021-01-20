@@ -1,11 +1,10 @@
 package com.example.greenarrow;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-public class ExpressTestActivity extends AppCompatActivity {
+public class ExpressTestActivity extends AppCompatActivity implements BaseView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,5 +12,35 @@ public class ExpressTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_express_test);
     }
 
-    //TODO: activity logic, fragments
+    @Override
+    public void showNewQuestionData(String[] data) {
+        //TODO
+    }
+
+    @Override
+    public void showAnswerAsCorrect(int optionNumber) {
+        //TODO
+    }
+
+    @Override
+    public void showAnswerAsWrong(int optionNumber, String wrongAnswerInfo) {
+        //TODO
+    }
+
+    @Override
+    public void enableOptionButtons() {
+        //TODO
+    }
+
+    @Override
+    public void enableContinueButton() {
+        //TODO
+    }
+
+    @Override
+    public void showFinalLayout() {
+        //TODO
+    }
+
+    //TODO: activity logic, fragments, disableOptionButtons, enableOptionButtons
 }

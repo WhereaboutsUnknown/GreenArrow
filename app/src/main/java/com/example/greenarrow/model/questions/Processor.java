@@ -1,11 +1,13 @@
 package com.example.greenarrow.model.questions;
 
 public interface Processor {
-    void processNextQuestion(Question question);
+    void processNextQuestion();
+
+    void reset(String request);
 
     void deactivate();
 
-    boolean checkAnswer(int answer);
+    boolean approvesAnswer(int answer);
 
     boolean isQuestionInProcess();
 
@@ -18,4 +20,6 @@ public interface Processor {
     String getOptionD();
 
     String getQuestionText();
+
+    String takeWrongAnswerInfo();
 }

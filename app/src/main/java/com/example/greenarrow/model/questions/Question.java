@@ -17,4 +17,6 @@ public interface Question {
     String getQuestionText();
 
     int getCorrectAnswer();
+
+    String getWrongAnswerInfo();
 }

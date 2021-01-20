@@ -1,11 +1,16 @@
 package com.example.greenarrow.model.questiondb;
 
 public enum Category {
-    DUMMY;
-    //TODO
+    LIFESTYLE,
+    SHOPPING,
+    FOOD,
+    TRAVELLING;
 
     private String[] nameList = {
-            "Тестовая категория"
+            "Бытовые привычки",
+            "Покупки",
+            "Еда",
+            "Путешествия и транспорт"
     };
 
     @Override
