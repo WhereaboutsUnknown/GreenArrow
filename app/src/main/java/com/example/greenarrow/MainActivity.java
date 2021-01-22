@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import static com.example.greenarrow.res_mvc.StringConstants.EXPRESS_TEST_KEY;
+
 public class MainActivity extends AppCompatActivity {
 
     Button expressTest;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(MainActivity.this, ExpressTestActivity.class);
+            intent.putExtra("key", EXPRESS_TEST_KEY);
             startActivity(intent);
         }
     };
@@ -57,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
         categoryTest.setOnClickListener(mOnCategoryTestClickListener);
         examTest.setOnClickListener(mOnExamTestClickListener);
         progressScreen.setOnClickListener(mOnProgressScreenClickListener);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //do nothing;
     }
 
 

@@ -4,6 +4,7 @@ import com.example.greenarrow.controller.ViewManager;
 import com.example.greenarrow.model.questiondb.Database;
 import com.example.greenarrow.model.questiondb.QuestionDatabase;
 
+import java.math.BigInteger;
 import java.util.Stack;
 
 import static com.example.greenarrow.res_mvc.IntegerConstants.DATA_ARRAY_LENGTH;
@@ -20,6 +21,8 @@ public final class QuestionProcessor implements Processor {
     private Database questionDatabase;
     private Stack<Question> questionStack;
     private Question currentQuestion;
+    private BigInteger score;
+    private BigInteger maxScore;
 
     public static Processor getQuestionProcessor(ViewManager manager) {
         if (questionProcessor == null) {
@@ -43,6 +46,9 @@ public final class QuestionProcessor implements Processor {
             deactivate();
         } else {
             currentQuestion = questionStack.pop();
+
+            maxScore = maxScore.add(BigInteger.valueOf(1));
+
             String[] questionData = new String[DATA_ARRAY_LENGTH];
             questionData[QUESTION_TEXT_INDEX] = currentQuestion.getQuestionText();
             questionData[OPTION_A_INDEX] = currentQuestion.getOptionA();
@@ -56,19 +62,24 @@ public final class QuestionProcessor implements Processor {
     @Override
     public void reset(String request) {
         questionStack = questionDatabase.formQuestionStack(request);
+        score = BigInteger.valueOf(0);
+        maxScore = BigInteger.valueOf(0);
         processNextQuestion();
     }
 
     @Override
     public void deactivate() {
         currentQuestion = null;
-        viewManager.notifyAboutTestFinish();
+        viewManager.notifyAboutTestFinish(score.intValue(), maxScore.intValue());
         //TODO
     }
 
     @Override
     public boolean approvesAnswer(int answer) {
-        return answer == currentQuestion.getCorrectAnswer();
+        boolean isCorrect = answer == currentQuestion.getCorrectAnswer();
+        if (isCorrect)
+            score = score.add(BigInteger.valueOf(1));
+        return isCorrect;
         //TODO
     }
 

@@ -2,7 +2,9 @@ package com.example.greenarrow.model.questions;
 
 import com.example.greenarrow.model.questiondb.Category;
 
-public final class ConcreteQuestion implements Question {
+import java.io.Serializable;
+
+public final class ConcreteQuestion implements Question, Serializable {
 
     public Category getCategory() {
         return category;

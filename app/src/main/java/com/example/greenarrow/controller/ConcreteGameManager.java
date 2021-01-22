@@ -62,8 +62,8 @@ public final class ConcreteGameManager implements GameManager, ViewManager {
     }
 
     @Override
-    public void notifyAboutTestFinish() {
-        view.showFinalLayout();
+    public void notifyAboutTestFinish(int score, int maxScore) {
+        view.showFinalLayout(score, maxScore);
         //TODO
     }
 }

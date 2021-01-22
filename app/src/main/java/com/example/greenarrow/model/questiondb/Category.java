@@ -1,6 +1,8 @@
 package com.example.greenarrow.model.questiondb;
 
-public enum Category {
+import java.io.Serializable;
+
+public enum Category implements Serializable {
     LIFESTYLE,
     SHOPPING,
     FOOD,

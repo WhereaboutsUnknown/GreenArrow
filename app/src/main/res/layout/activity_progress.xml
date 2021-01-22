@@ -7,4 +7,75 @@
     android:background="@color/colorWhite"
     tools:context=".ProgressActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="8">
+
+        <TextView
+            android:id="@+id/total_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentDark"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/progress_exam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccentDark"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_weight="2" />
+
+        <TextView
+            android:id="@+id/progress_lifestyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/progress_shopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:background="@color/colorRed"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/progress_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:background="@color/colorOrange"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/progress_travelling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:background="@color/colorBlue"
+            android:layout_weight="1" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

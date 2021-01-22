@@ -2,44 +2,35 @@ package com.example.greenarrow;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-public class ExamActivity extends AppCompatActivity implements BaseView {
+import static com.example.greenarrow.res_mvc.StringConstants.EXAM_KEY;
+
+public class ExamActivity extends AppCompatActivity {
+
+    Button startExam;
+
+    private View.OnClickListener mOnButtonStartExamClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(ExamActivity.this, ExpressTestActivity.class);
+            intent.putExtra("key", EXAM_KEY);
+            startActivity(intent);
+            finishAffinity();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam);
-    }
 
-    @Override
-    public void showNewQuestionData(String[] data) {
-        //TODO
-    }
+        startExam = findViewById(R.id.start_exam);
 
-    @Override
-    public void showAnswerAsCorrect(int optionNumber) {
-
-    }
-
-    @Override
-    public void showAnswerAsWrong(int optionNumber, String wrongAnswerInfo) {
-
-    }
-
-    @Override
-    public void enableOptionButtons() {
-
-    }
-
-    @Override
-    public void enableContinueButton() {
-
-    }
-
-    @Override
-    public void showFinalLayout() {
-
+        startExam.setOnClickListener(mOnButtonStartExamClickListener);
     }
 
     //TODO: activity logic, fragments

@@ -7,4 +7,49 @@
     android:background="@color/colorWhite"
     tools:context=".ExamActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="20">
+
+        <TextView
+            android:id="@+id/exam_headline_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccentDark"
+            android:textStyle="bold"
+            android:textSize="50sp"
+            android:text="@string/exam_headline"
+            android:layout_weight="3"/>
+
+        <TextView
+            android:id="@+id/exam_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccentDark"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="@string/exam_text"
+            android:layout_weight="12"/>
+
+        <Button
+            android:id="@+id/start_exam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:layout_marginBottom="1dp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="@string/start_exam_button_text"
+            android:background="@drawable/background_gradient"
+            android:layout_weight="5" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

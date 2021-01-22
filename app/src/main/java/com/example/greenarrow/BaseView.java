@@ -7,9 +7,7 @@ public interface BaseView {
 
     void showAnswerAsWrong(int optionNumber, String wrongAnswerInfo);
 
-    void enableOptionButtons();
-
     void enableContinueButton();
 
-    void showFinalLayout();
+    void showFinalLayout(int score, int maxScore);
 }
